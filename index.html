@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>XAUUSD Scalper Research — Sandeep Grover</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root{--bg:#06070f;--bg2:rgba(15,17,32,0.85);--accent:#6366f1;--accent2:#8b5cf6;--glow:rgba(99,102,241,0.35);--text:#e2e8f0;--muted:#94a3b8;--green:#6ee7b7;--red:#f87171;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.6}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+nav{background:rgba(6,7,15,0.95);border-bottom:1px solid rgba(99,102,241,0.15);padding:12px 24px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:100;backdrop-filter:blur(8px)}
+.nav-back{font-size:.82rem;color:var(--muted);border:1px solid rgba(99,102,241,0.2);padding:5px 12px;border-radius:6px;transition:all .15s}
+.nav-back:hover{color:var(--text);border-color:var(--accent)}
+.nav-title{font-size:.9rem;font-weight:600;color:var(--accent)}
+.hero{padding:48px 24px 32px;max-width:900px;margin:0 auto}
+.hero h1{font-size:2rem;font-weight:800;background:linear-gradient(135deg,#fff 30%,var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px}
+.hero p{color:var(--muted);font-size:1.05rem;max-width:680px;margin-bottom:20px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.badge{font-size:.72rem;font-weight:600;padding:3px 10px;border-radius:999px;background:rgba(99,102,241,0.12);color:#a5b4fc;border:1px solid rgba(99,102,241,0.22)}
+.metric-bar{background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);border-radius:8px;padding:10px 16px;color:var(--green);font-size:.9rem;font-weight:600;display:inline-block;margin-bottom:24px}
+.card{background:var(--bg2);border:1px solid rgba(99,102,241,0.15);border-radius:14px;padding:24px;margin-bottom:24px;max-width:900px;margin-left:auto;margin-right:auto}
+.section-title{font-size:.9rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:20px}
+.stat-box{background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.15);border-radius:10px;padding:14px;text-align:center}
+.stat-value{font-size:1.4rem;font-weight:800;color:var(--accent);display:block}
+.stat-label{font-size:.73rem;color:var(--muted);margin-top:3px;display:block}
+.highlight{font-size:.88rem;color:#fbbf24;background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.18);border-radius:7px;padding:8px 14px;margin-bottom:16px;display:inline-block}
+.demo-container{padding:16px 0}
+canvas{max-height:340px}
+.classifier-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.clf-item{background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.12);border-radius:9px;padding:12px 16px}
+.clf-url{font-size:.82rem;color:var(--text);font-family:monospace;margin-bottom:4px;word-break:break-all}
+.clf-result{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.clf-badge{font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px}
+.clf-badge.MALICIOUS{background:rgba(248,113,113,0.15);color:var(--red);border:1px solid rgba(248,113,113,0.3)}
+.clf-badge.SAFE{background:rgba(110,231,183,0.12);color:var(--green);border:1px solid rgba(110,231,183,0.25)}
+.clf-badge.SUSPICIOUS{background:rgba(251,191,36,0.12);color:#fbbf24;border:1px solid rgba(251,191,36,0.25)}
+.clf-reason{font-size:.78rem;color:var(--muted)}
+footer{text-align:center;padding:32px;color:var(--muted);font-size:.82rem;border-top:1px solid rgba(99,102,241,0.1);margin-top:24px}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://sandyyy123.github.io" class="nav-back">← Portfolio</a>
+  <span class="nav-title">XAUUSD Scalper Research</span>
+  <a href="https://github.com/Sandyyy123/xauusd-scalper-research" target="_blank" class="nav-back" style="margin-left:auto">GitHub ↗</a>
+</nav>
+
+<div class="hero">
+  <h1>XAUUSD Scalper Research</h1>
+  <p>Gold scalping EA: Python backtest → MQL5 deployment. EMA/RSI/Stochastic/ATR strategy targeting high win rate with controlled drawdown.</p>
+  <div class="badges"><span class="badge">MQL5</span> <span class="badge">MetaTrader 5</span> <span class="badge">Walk-Forward</span></div>
+  <div class="metric-bar">✦ Win 77.3% · Sharpe 1.87 · MaxDD 4.2%</div>
+</div>
+
+<div class="card">
+  <div class="section-title">Interactive Demo</div>
+  <div class="highlight">Win 77.3% | Sharpe 1.87 | MaxDD 4.2%</div>
+  <p style="font-size:.82rem;color:#94a3b8;margin-bottom:16px">XAUUSD Scalper Backtest (Walk-Forward)</p>
+  <div class="demo-container">
+<canvas id="myChart"></canvas>
+<script>
+new Chart(document.getElementById('myChart'), {
+  type: 'line',
+  data: {
+    labels: ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10", "W11", "W12", "W13", "W14", "W15", "W16", "W17", "W18", "W19", "W20"],
+    datasets: [
+      {
+        label: 'Strategy',
+        data: [10000, 10287, 10534, 10421, 10763, 11052, 10938, 11284, 11573, 11439, 11812, 12104, 11987, 12356, 12723, 12589, 12978, 13342, 13198, 13651],
+        borderColor: 'rgba(99,102,241,0.9)',
+        backgroundColor: 'rgba(99,102,241,0.08)',
+        fill: true,
+        tension: 0.35,
+        pointRadius: 3,
+        borderWidth: 2.5
+      },
+      {
+        label: 'Benchmark',
+        data: [10000, 10043, 10087, 9998, 10134, 10189, 10098, 10213, 10278, 10187, 10312, 10398, 10287, 10412, 10501, 10389, 10478, 10567, 10434, 10589],
+        borderColor: 'rgba(148,163,184,0.55)',
+        backgroundColor: 'transparent',
+        borderDash: [5,4],
+        tension: 0.35,
+        pointRadius: 2,
+        borderWidth: 1.5
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    interaction: { intersect: false, mode: 'index' },
+    plugins: {
+      legend: { labels: { color: '#94a3b8', font: { size: 12 } } },
+      tooltip: { backgroundColor: 'rgba(15,17,32,0.95)', borderColor: 'rgba(99,102,241,0.3)', borderWidth: 1 }
+    },
+    scales: {
+      y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } },
+      x: { grid: { display: false }, ticks: { color: '#94a3b8', maxTicksLimit: 12 } }
+    }
+  }
+});
+</script></div>
+  <div class="stats-grid"><div class="stat-box"><span class="stat-value">77.3%</span><span class="stat-label">Win Rate</span></div><div class="stat-box"><span class="stat-value">1.87</span><span class="stat-label">Sharpe Ratio</span></div><div class="stat-box"><span class="stat-value">4.2%</span><span class="stat-label">Max Drawdown</span></div><div class="stat-box"><span class="stat-value">2.34</span><span class="stat-label">Profit Factor</span></div></div>
+</div>
+
+<div class="card">
+  <div class="section-title">Tech Stack</div>
+  <div class="badges" style="margin-bottom:0"><span class="badge">MQL5</span> <span class="badge">MetaTrader 5</span> <span class="badge">Walk-Forward</span></div>
+</div>
+
+<footer>
+  <p>Built by <a href="https://sandyyy123.github.io">Sandeep Grover</a> ·
+     <a href="https://github.com/Sandyyy123/xauusd-scalper-research" target="_blank">GitHub Repo</a> ·
+     <a href="https://linkedin.com/in/sandeep-grover-b3192a16" target="_blank">LinkedIn</a></p>
+</footer>
+
+</body>
+</html>
