@@ -1,8 +1,29 @@
+Proprietary Software License
+
 Copyright (c) 2026 Sandeep Grover. All Rights Reserved.
 
-No part of this software or associated documentation files may be copied,
-modified, merged, published, distributed, sublicensed, sold, adapted,
-or used in any form or by any means without the express written permission
-of the copyright holder.
+This repository and all of its contents (source code, scripts, data, models, and
+documentation; collectively, the "Software") are the proprietary and confidential
+property of Sandeep Grover ("the Owner") and are protected by copyright and other
+intellectual-property laws. The Software is licensed, not sold, and all rights are
+reserved by the Owner.
 
-Unauthorized use, reproduction, or adaptation of this work is strictly prohibited.
+NO LICENSE OR PERMISSION is granted, by implication, estoppel, or otherwise, to any
+person or entity to use, run, execute, copy, reproduce, download, store, modify,
+adapt, translate, merge, publish, distribute, transmit, sublicense, sell, host, use
+for training or evaluation of machine-learning models, or create derivative works
+from the Software, in whole or in part, by any means, without the prior express
+written permission of the Owner.
+
+Making this repository publicly viewable does NOT grant any license to its contents.
+Accessing or viewing the Software transfers no right, title, or interest in it. Any
+unauthorized use, reproduction, or distribution is strictly prohibited and may result
+in civil and criminal liability.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING WITHOUT LIMITATION THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE OWNER BE LIABLE FOR
+ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM OR IN CONNECTION WITH THE
+SOFTWARE OR ITS USE.
+
+For licensing inquiries, contact the Owner via https://github.com/Sandyyy123
